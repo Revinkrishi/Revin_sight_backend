@@ -1,0 +1,1 @@
+# MONGO_URI=mongodb+srv://revinsight:revinsight%40123@revin-sight-cluster.iuml0pk.mongodb.net/?retryWrites=true&w=majority

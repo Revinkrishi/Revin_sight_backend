@@ -1,0 +1,15 @@
+SENSOR_MAPPING = {
+    "A01": "soil_moisture_1",
+    "A02": "soil_moisture_2",
+    "A03": "soil_moisture_3",
+    "A04": "soil_ec",
+    "A05": "soil_temperature",
+
+    "B01": "leaf_wetness",
+    "B02": "atm_humidity",
+    "B03": "atm_temperature",
+    "B04": "ambient_light",
+    "B05": "wind_direction",
+    "B06": "wind_speed",
+    "B07": "rain_gauge",
+}

@@ -1,0 +1,32 @@
+services:
+  backend:
+    build: .
+    container_name: revin_sight_backend
+    restart: always
+    env_file: .env
+    ports:
+      - "8010:8000"
+    depends_on:
+      - mongo
+    networks:
+      - revin-net
+
+  mongo:
+    image: mongo:6.0
+    container_name: revin_mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: revin_sight
+      MONGO_INITDB_ROOT_PASSWORD: revin_sight123
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - revin-net
+
+networks:
+  revin-net:
+
+volumes:
+  mongo_data:
