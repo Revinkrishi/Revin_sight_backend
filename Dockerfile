@@ -1,22 +1,20 @@
 FROM python:3.11-slim
 
-# set work directory
 WORKDIR /app
 
-# Install pipenv
+# Install pipenv only (no GCC required)
 RUN pip install pipenv
 
-# Copy Pipfile + Pipfile.lock
+# Copy required files
 COPY Pipfile Pipfile.lock ./
 
-# Install dependencies via pipenv
-RUN pipenv install --system --deploy
+# Install deps inside system (no compile)
+RUN pipenv install --system --deploy --skip-lock
 
-# Copy entire project
+# Copy project
 COPY . .
 
-# Expose port
 EXPOSE 8000
 
-# Start FastAPI
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+

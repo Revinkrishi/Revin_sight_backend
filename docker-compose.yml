@@ -1,9 +1,12 @@
+version: '3.8'
+
 services:
   backend:
     build: .
     container_name: revin_sight_backend
     restart: always
-    env_file: .env
+    env_file:
+      - .env
     ports:
       - "8010:8000"
     depends_on:
@@ -30,3 +33,4 @@ networks:
 
 volumes:
   mongo_data:
+
