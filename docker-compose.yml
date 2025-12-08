@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 version: '3.8'
-=======
-version: "3.9"
->>>>>>> e307cf2a9bbc255b16060d99a356583c7be98423
 
 services:
   backend:
