@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 version: '3.8'
+=======
+version: "3.9"
+>>>>>>> e307cf2a9bbc255b16060d99a356583c7be98423
 
 services:
   backend:
@@ -9,6 +13,8 @@ services:
       - .env
     ports:
       - "8010:8000"
+    volumes:
+      - .:/app
     depends_on:
       - mongo
     networks:
@@ -30,6 +36,7 @@ services:
 
 networks:
   revin-net:
+    driver: bridge
 
 volumes:
   mongo_data:
