@@ -1,22 +1,24 @@
 FROM python:3.11-slim
 
-# set work directory
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
-# Install pipenv
-RUN pip install pipenv
+# Install Pipenv properly (important: system packages required)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && pip install --no-cache-dir pipenv \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Copy Pipfile + Pipfile.lock
+# Copy Pipenv files first (best practice)
 COPY Pipfile Pipfile.lock ./
 
-# Install dependencies via pipenv
+# Install dependencies into system Python environment
 RUN pipenv install --system --deploy
 
-# Copy entire project
+# Copy actual source code
 COPY . .
 
-# Expose port
 EXPOSE 8000
 
-# Start FastAPI
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--reload", "--port", "8000"]
