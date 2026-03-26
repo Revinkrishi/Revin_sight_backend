@@ -4,6 +4,11 @@ SENSOR_MAPPING = {
     "A03": "soil_moisture_3",
     "A04": "soil_ec",
     "A05": "soil_temperature",
+    "A06": "2_soil_moisture_1",
+    "A07": "2_soil_moisture_2",
+    "A08": "2_soil_moisture_3",
+    "A09": "2_soil_ec",
+    "A10": "2_soil_temperature",
 
     "B01": "leaf_wetness",
     "B02": "atm_humidity",
