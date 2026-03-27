@@ -17,4 +17,5 @@ SENSOR_MAPPING = {
     "B05": "wind_direction",
     "B06": "wind_speed",
     "B07": "rain_gauge",
+    "B08": "wind_speed_max",
 }
